@@ -21,7 +21,6 @@ const Cart = (): JSX.Element => {
   const { cart, removeProduct, updateProductAmount } = useCart();
 
   const cartFormatted = cart.map(product => {
-    console.log("productaa", product)
     return ({ 
       ...product,
       subtotal: product.price * (product.amount || 1)
@@ -36,7 +35,6 @@ const Cart = (): JSX.Element => {
     )
 
   function handleProductIncrement(product: Product) {
-    console.log(product)
     updateProductAmount({
       productId: product.id,
       amount: (product.amount || 1) + 1
@@ -44,7 +42,6 @@ const Cart = (): JSX.Element => {
   }
 
   function handleProductDecrement(product: Product) {
-    // console.log(product)
     updateProductAmount({
       productId: product.id,
       amount: product.amount - 1
